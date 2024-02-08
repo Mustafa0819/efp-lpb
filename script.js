@@ -50,53 +50,52 @@ while (i <= 10) {
 
 
 
-/*
-let userInput, i, number;
 
-i = 1;
-userInput = parseInt(prompt("Entrez un nombre"));
-number = userInput;
+// let userInput, i, number;
 
-while (i < userInput) {
-    number += i;
-    i++;
-}
-console.log(number); */
+// i = 1;
+// userInput = parseInt(prompt("Entrez un nombre"));
+// number = userInput;
 
-
-/*
-let userInput, i, number;
-
-i = 1;
-userInput = parseInt(prompt("Entrez un nombre"));
-number = userInput;
-
-while (i < userInput) {
-    number *= i;
-    i++;
-}
-console.log(number);
-*/
+// while (i < userInput) {
+//     number += i;
+//     i++;
+// }
+// console.log(number); 
 
 
 
-/*
-let number, biggestNumber, i;
+// let userInput, i, number;
 
-i = 1;
-biggestNumber = 0;
+// i = 1;
+// userInput = parseInt(prompt("Entrez un nombre"));
+// number = userInput;
 
-while (i < 4) {    
-    number = parseInt(prompt("Entrez le nombre numéro " + i));
+// while (i < userInput) {
+//     number *= i;
+//     i++;
+// }
+// console.log(number);
 
-    if (number > biggestNumber) {
-        biggestNumber = number;
-    }
 
-    i++
-}
 
-console.log("Le plus grand de ces nombres est: " + biggestNumber); */
+
+//  let number, biggestNumber, i;
+
+//  i = 1;
+//  biggestNumber = 0;
+
+//  while (i < 20) {    
+//      number = parseInt(prompt("Entrez le nombre numéro " + i));
+
+//      if (i === 1 || number > biggestNumber) {
+//          biggestNumber = number;
+//      }
+
+//      i++
+//  }
+
+//  console.log("Le plus grand de ces nombres est: " + biggestNumber); 
 
 
 
@@ -109,7 +108,7 @@ biggestNumber = 0;
 while (number != 0) {    
     number = parseInt(prompt("Entrez le nombre numéro " + i + "(Entrez 0 si vous voulez arrêter la boucle)"));
 
-    if (number > biggestNumber) {
+    if (i === 1 || number > biggestNumber) {
         biggestNumber = number;
     }
 
@@ -121,9 +120,11 @@ console.log("Le plus grand de ces nombres est: " + biggestNumber); */
 
 
 
-let price, totalPrice, userPayment;
+let price, totalPrice, userPayment, refund, refundAmount, refundMessage;
 totalPrice = 0;
 userPayment = 0;
+refund = 0;
+refundMessage = "";
 
 while (price != 0) {
     price = parseInt(prompt("Entrer le prix pour vo(s) article(s) (Entrer 0 pour arrêter)"));
@@ -131,5 +132,27 @@ while (price != 0) {
     totalPrice += price;
 }
 
+
 userPayment = prompt("Voici votre total: " + totalPrice + "€ combien allez vous payer?");
-console.log(userPayment);
+
+while (userPayment < totalPrice) {
+    userPayment = prompt("Voici votre total: " + totalPrice + "€ introduiser un montant plus grand ou égale?");
+}
+
+
+refundAmount = userPayment - totalPrice;
+
+while (refund != refundAmount) {
+    if (refund + 10 <= refundAmount) {
+        refundMessage += "10€" + " ";
+        refund += 10;
+    } else if (refund + 5 <= refundAmount) {
+        refundMessage += "5€" + " ";
+        refund += 5;
+    } else if (refund + 1 <= refundAmount) {
+        refundMessage += "1€" + " ";
+        refund += 1;
+    }
+}
+
+console.log(refundMessage);
